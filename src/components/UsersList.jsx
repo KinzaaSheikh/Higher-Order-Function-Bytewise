@@ -14,7 +14,19 @@ const UsersList = () => {
         fetchUsers()
     }, [])
 
-    let renderUsers = users.map((user) => {
+    // let renderUsers = users.map((user) => {
+    //     return (
+    //         <div key={user.id}>
+    //             <p>
+    //                 <strong>{user.name}</strong>
+    //             </p>
+    //         </div>
+    //     )
+    // })
+
+    let filteredUsers = users.filter(({ name }) => {
+        return name.indexOf(term) >= 0
+    }).map((user) => {
         return (
             <div key={user.id}>
                 <p>
@@ -26,11 +38,14 @@ const UsersList = () => {
 
     return (
         <>
-        <div>
-            <input type="text" value={term} onChange={ (e) => setTerm(e.target.value)}/>
-        </div>
             <div>
-                {renderUsers}
+                <input 
+                type="text" 
+                value={term} 
+                onChange={ (e) => setTerm(e.target.value)}/>
+            </div>
+            <div>
+                {filteredUsers}
             </div>
         </>
     )
