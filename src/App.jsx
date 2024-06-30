@@ -1,3 +1,4 @@
+import TodoList from "./components/TodoList"
 import UsersList from "./components/UsersList"
 
 function App() {
@@ -5,7 +6,12 @@ function App() {
     <div className="App">
       <h2>Higher Order Component</h2>
       <div className="sectiom">
-        <UsersList />
+        <div>
+          <UsersList />
+        </div>
+        <div>
+          <TodoList />
+        </div>
       </div>
     </div>
   )
